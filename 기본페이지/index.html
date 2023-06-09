@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="main_map.css" />
     <link rel="stylesheet" href="developer.css" />
+    <script src="developer.js"></script>
     <title>여행발자국</title>
   </head>
   <body>
@@ -21,7 +21,7 @@
         </label>
         <nav class="cyy_nav">
           <a href="#none" data-link="마이페이지"></a>
-          <a href="#none" data-link="개발자 소개" onclick="openDeveloperModal()"></a>
+          <a href="#none" data-link="개발자 소개" onclick="openModal()"></a>
           <a href="#none" data-link="로그인"></a>
           <a href="#none" data-link="HOME"></a>
         </nav>
@@ -36,31 +36,6 @@
       <p>CopyRight &copy; dbsdudsw@icloud.com</p>
     </footer>
     <!-- 개발자 소개 모달 -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="developer">
-          <img src="developer1.jpg" alt="Developer 1" />
-          <h3>Developer 1</h3>
-          <p>안녕하세요! 개발자 1입니다.</p>
-        </div>
-        <div class="developer">
-          <img src="developer2.jpg" alt="Developer 2" />
-          <h3>Developer 2</h3>
-          <p>안녕하세요! 개발자 2입니다.</p>
-        </div>
-        <div class="developer">
-          <img src="developer3.jpg" alt="Developer 3" />
-          <h3>Developer 3</h3>
-          <p>안녕하세요! 개발자 3입니다.</p>
-        </div>
-      </div>
-    </div>
-    <script>
-      // 개발자 소개 모달 열기
-      function openDeveloperModal() {
-        document.getElementById("developerModal").style.display = "flex";
-      }
-    </script>
+    <div id="developer-modal" class="developer-modal"></div>
   </body>
 </html>
