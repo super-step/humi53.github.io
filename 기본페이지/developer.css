@@ -14,12 +14,6 @@
   display: inline-block;
 }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
 .developer-title h1 {
   font-size: 50px;
   text-align: center;
@@ -40,10 +34,10 @@
   align-items: center;
   border: 1px solid black;
 }
-
+/* 
 .developer:last-child {
   margin-right: 0;
-}
+} */
 
 .developer img {
   width: 280px;
@@ -54,7 +48,8 @@
 }
 
 .developer h3 {
-  margin-top: 10px;
+  margin-top: 20px;
+  font-size: 26px;
 }
 
 .developer p {
