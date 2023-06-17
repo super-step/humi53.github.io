@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const sessionUser = sessionStorage.getItem("user");
+
+  // 세션유무에 따른 메뉴바 처리
+  const menuBar = document.querySelector("nav.cyy_nav");
+  if (sessionUser === "test") {
+    menuBar.querySelector("#login")?.remove();
+    let logout = document.querySelector("#logout");
+    let logoutText = logout?.getAttribute("data-link");
+    logout?.setAttribute("data-link", logoutText + "(" + sessionUser + ")");
+  } else {
+    menuBar.querySelector("#mypage")?.remove();
+    menuBar.querySelector("#logout")?.remove();
+  }
+
   // todo : 메뉴버튼 마다 링크 달기
   document.querySelector("nav.cyy_nav")?.addEventListener("click", (e) => {
     const menu = e.target;
@@ -10,7 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (menu.id === "profile") {
       document.location.href = "/profile/profile.html";
     } else if (menu.id === "mypage") {
-      alert(menu.id);
+      document.location.href = "/mypage/mypage.html";
+    } else if (menu.id === "logout") {
+      sessionStorage.removeItem("user");
+      document.location.href = "/index.html";
     }
   });
 
