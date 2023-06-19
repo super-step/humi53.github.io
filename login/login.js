@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // 회원계정정보 로드
+  let member = JSON.parse(sessionStorage.getItem("member"));
+
+  // let member = members;
+  // sessionStorage.setItem("member", JSON.stringify(members));
+  // console.log(sessionStorage.getItem("member"));
+  // member.push({
+  //   id: "newid",
+  //   password: "1234",
+  //   name: "newname",
+  //   nick: "newnick",
+  // });
+  // sessionStorage.setItem("member", JSON.stringify(member));
+  // console.log(sessionStorage.getItem("member"));
+  // member = JSON.parse(sessionStorage.getItem("member"));
+  console.log(member);
   // 로그인 클릭
   document.querySelector("#login_button").addEventListener("click", () => {
     const login_form = document.querySelector("form#login_form");
@@ -14,19 +30,28 @@ document.addEventListener("DOMContentLoaded", () => {
       password.focus();
       return false;
     }
-    if (username.value === "test" && password.value === "1234") {
-      sessionStorage.setItem("user", username.value);
-    } else {
+    let i = 0;
+    for (i = 0; i < member.length; i++) {
+      console.log(member[i]);
+      if (
+        username.value === member[i].id &&
+        password.value === member[i].password
+      ) {
+        sessionStorage.setItem("user", JSON.stringify(member[i]));
+        document.location.href = "/index.html";
+        break;
+      }
+    }
+    if (i == member.length) {
       alert("로그인이 실패하였습니다.");
     }
-    document.location.href = "/index.html";
   });
 
   // 하단 text 클릭 : 회원가입, 아이디/비밀번호 찾기
   document.querySelector("#more_text").addEventListener("click", (e) => {
     const menu = e.target;
     if (menu.id === "login_join") {
-      alert(menu.id);
+      document.location.href = "./join.html";
     } else if (menu.id === "login_findId") {
       alert(menu.id);
     } else if (menu.id === "login_findPassword") {

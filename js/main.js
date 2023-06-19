@@ -1,13 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sessionUser = sessionStorage.getItem("user");
+  let member = JSON.parse(sessionStorage.getItem("member"));
+  const sessionUser = JSON.parse(sessionStorage.getItem("user"));
 
   // 세션유무에 따른 메뉴바 처리
+  let isLogin = false;
   const menuBar = document.querySelector("nav.cyy_nav");
-  if (sessionUser === "test") {
+  for (i = 0; i < member.length; i++) {
+    if (sessionUser?.id === member[i].id) {
+      isLogin = true;
+      break;
+    }
+  }
+  if (isLogin) {
     menuBar.querySelector("#login")?.remove();
     let logout = document.querySelector("#logout");
     let logoutText = logout?.getAttribute("data-link");
-    logout?.setAttribute("data-link", logoutText + "(" + sessionUser + ")");
+    logout?.setAttribute(
+      "data-link",
+      logoutText + "(" + sessionUser?.nick + ")"
+    );
   } else {
     menuBar.querySelector("#mypage")?.remove();
     menuBar.querySelector("#logout")?.remove();
@@ -36,19 +47,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const main_intro = document.querySelector(".main_intro");
   // main_intro.addEventListener("mouseenter", (main_intro.style.color = "red"));
 });
-
-// if ($('#location-map')) {
-//   $('#location-map area').each(function() {
-//     var id = $(this).attr('id');
-//     $(this).mouseover(function() {
-//       $('#overlay' + id).show();
-
-//     });
-
-//     $(this).mouseout(function() {
-//       var id = $(this).attr('id');
-//       $('#overlay' + id).hide();
-//     });
-
-//   });
-// }
