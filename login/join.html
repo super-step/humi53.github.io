@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="join.css" />
     <script src="../data/member.js" type="text/javascript"></script>
     <script src="../js/main.js"></script>
     <script src="login.js"></script>
@@ -33,12 +33,19 @@
     <section>
       <article class="map_container"></article>
     </section>
-    <article id="login_container">
-      <!-- 로그인 화면 -->
-      <section id="login_box">
-        <form id="login_form">
-          <h2>회원가입</h2>
-          <input type="text" name="userid" placeholder="사용자 ID" />
+    <article id="join_container">
+      <!-- 회원가입 화면 -->
+      <section id="join_box">
+        <div id="join_title"><h2>회원가입</h2></div>
+        <form id="join_form">
+          <div>
+            <input type="text" name="userid" placeholder="사용자 ID" /><button
+              type="button"
+              id="idcheck"
+            >
+              중복확인
+            </button>
+          </div>
           <input type="password" name="password" placeholder="비밀번호" />
           <input
             type="password"
@@ -47,9 +54,16 @@
           />
           <input type="text" name="username" placeholder="이름" />
           <input type="text" name="nickname" placeholder="닉네임" />
-          <input type="text" name="tel" placeholder="전화번호" />
+          <div>
+            <input type="text" name="tel" placeholder="전화번호" /><button
+              type="button"
+              id="telcheck"
+            >
+              중복확인
+            </button>
+          </div>
 
-          <button type="button" id="login_button">회원가입</button>
+          <button type="button" id="join_button">회원가입</button>
         </form>
       </section>
     </article>

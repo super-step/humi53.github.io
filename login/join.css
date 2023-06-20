@@ -1,0 +1,38 @@
+section {
+  border: 1px solid black;
+}
+div {
+  border: 1px solid blue;
+}
+/* 최상위 컨테이너 */
+#join_container {
+  display: flex;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 800px;
+  height: 700px;
+  padding: 40px;
+  text-align: center;
+  margin: 30px auto;
+  background-color: white;
+
+  border-radius: 18px;
+  box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, 0.2);
+}
+#join_box {
+  text-align: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* 로그인 타이틀 */
+#join_title {
+}
+#join_title h2 {
+  font-size: xx-large;
+  font-weight: 600; /* 폰트굵기 */
+  margin: 30px auto 100px auto;
+}
