@@ -62,24 +62,28 @@ section {
 /* 중복확인 채크 버튼 */
 #join_body .check_button {
   border: 2px solid red;
+  color: red;
   margin: 10px auto;
   padding: 10px 10px;
   border-radius: 8px;
   outline: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   background: none;
   width: 100px;
   transition: all 0.5s ease;
 }
-#join_body .check_button:hover {
+/* #join_body .check_button:hover {
   border-radius: 20px;
-}
+} */
 #join_body .check_passed {
   border: 2px solid #3498db;
-  border-radius: 20px;
+  background-color: #cfecff;
+  color: #3498db;
+  border-radius: 50px;
+  font-weight: bold;
 }
 
-/* login 버튼 */
+/* 회원가입 버튼 */
 #join_body #join_button {
   border: 2px solid #3498db;
   margin: 65px auto;

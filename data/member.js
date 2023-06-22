@@ -7,16 +7,19 @@ const members = [
     tel: "010-1111-1111",
   },
 ];
-let member = members;
-sessionStorage.setItem("member", JSON.stringify(member));
-sessionStorage.setItem("more", JSON.stringify(member));
-// console.log(sessionStorage.getItem("member"));
-member.push({
-  id: "newid",
-  password: "1234",
-  name: "김새로",
-  nick: "프로도",
-  tel: "010-2222-2222",
-});
-sessionStorage.setItem("member", JSON.stringify(member));
-// console.log(sessionStorage.getItem("member"));
+let member = sessionStorage.getItem("member");
+if (member === null) {
+  console.log(member);
+  member = members;
+  sessionStorage.setItem("member", JSON.stringify(member));
+  // console.log(sessionStorage.getItem("member"));
+  member.push({
+    id: "newid",
+    password: "1234",
+    name: "김새로",
+    nick: "프로도",
+    tel: "010-2222-2222",
+  });
+  sessionStorage.setItem("member", JSON.stringify(member));
+  console.log(sessionStorage.getItem("member"));
+}

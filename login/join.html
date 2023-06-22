@@ -39,7 +39,7 @@
         <div id="join_body">
         <form id="join_form">
           <div class="join_rowbox">
-            <input type="text" name="userid" id="userid" placeholder="사용자 ID" /><button
+            <input type="text" name="userid" id="userid" placeholder="사용자 ID는 4글자이상" /><button
               type="button"
               id="idcheck"
               class="check_button"
@@ -47,18 +47,19 @@
               중복확인
             </button>
           </div>
-          <input type="password" name="password" id="password" placeholder="비밀번호" />
+          <input type="password" name="password" id="password" placeholder="비밀번호는 4글자 이상" />
           <input
             type="password"
             name="password_check"
             id="password_check"
             placeholder="비밀번호 확인"
           />
-          <input type="text" name="username" placeholder="이름" />
-          <input type="text" name="nickname" placeholder="닉네임" />
+          <input type="text" name="username" id="username" placeholder="이름" />
+          <input type="text" name="nickname" id="nickname" placeholder="닉네임" />
           <div class="join_rowbox">
-            <input type="text" name="tel" placeholder="전화번호" /><button
+            <input type="text" name="tel" id="tel" placeholder="전화번호 예) 010-0000-0000" /><button
               type="button"
+              id="telcheck"
               class="check_button"
             >
               중복확인
