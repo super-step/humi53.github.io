@@ -9,6 +9,7 @@ const members = [
 ];
 let member = members;
 sessionStorage.setItem("member", JSON.stringify(member));
+sessionStorage.setItem("more", JSON.stringify(member));
 // console.log(sessionStorage.getItem("member"));
 member.push({
   id: "newid",
