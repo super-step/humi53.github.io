@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="join.css" />
     <script src="../data/member.js" type="text/javascript"></script>
     <script src="../js/main.js"></script>
-    <script src="login.js"></script>
+    <script src="join.js"></script>
     <title>여행발자국</title>
   </head>
   <body>
@@ -37,33 +37,37 @@
       <!-- 회원가입 화면 -->
       <section id="join_box">
         <div id="join_title"><h2>회원가입</h2></div>
+        <div id="join_body">
         <form id="join_form">
-          <div>
-            <input type="text" name="userid" placeholder="사용자 ID" /><button
+          <div class="join_rowbox">
+            <input type="text" name="userid" id="userid" placeholder="사용자 ID" /><button
               type="button"
               id="idcheck"
+              class="check_button"
             >
               중복확인
             </button>
           </div>
-          <input type="password" name="password" placeholder="비밀번호" />
+          <input type="password" name="password" id="password" placeholder="비밀번호" />
           <input
             type="password"
             name="password_check"
+            id="password_check"
             placeholder="비밀번호 확인"
           />
           <input type="text" name="username" placeholder="이름" />
           <input type="text" name="nickname" placeholder="닉네임" />
-          <div>
+          <div class="join_rowbox">
             <input type="text" name="tel" placeholder="전화번호" /><button
               type="button"
-              id="telcheck"
+              class="check_button"
             >
               중복확인
             </button>
           </div>
 
           <button type="button" id="join_button">회원가입</button>
+        </div>
         </form>
       </section>
     </article>

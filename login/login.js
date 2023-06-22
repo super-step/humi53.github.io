@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // member = JSON.parse(sessionStorage.getItem("member"));
   console.log(member);
   // 로그인 클릭
-  document.querySelector("#login_button").addEventListener("click", () => {
+  document.querySelector("#login_button")?.addEventListener("click", () => {
     const login_form = document.querySelector("form#login_form");
     const username = login_form.querySelector("input[name='username']");
     const password = login_form.querySelector("input[name='password']");
