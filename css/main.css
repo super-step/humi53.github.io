@@ -15,7 +15,6 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
-  transition: all 0.5s ease;
 }
 body::before {
   content: "";
@@ -25,8 +24,7 @@ body::before {
   top: 0;
   height: 100%;
   width: 100%;
-  background: url("../image/image/bicycle-gf58dde6d0_1280.jpg") no-repeat center
-    fixed;
+  background: url("../image/background_img.jpg") no-repeat center fixed;
   background-attachment: fixed;
   background-size: cover;
   opacity: 1;

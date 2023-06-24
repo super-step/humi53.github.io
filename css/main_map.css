@@ -22,11 +22,29 @@ article {
   margin: 11em auto;
 }
 .main_to_map img {
-  /* margin-top: 5rem; */
-  width: 60px;
+  margin-top: 4rem;
+  width: 65px;
   cursor: pointer;
   -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
+  transition: 0.2s;
+  animation-duration: 1 s;
+  animation-name: toBottom;
+  animation-iteration-count: infinite;
+}
+
+@keyframes toBottom {
+  0% {
+  }
+  100% {
+    width: 70px;
+  }
+}
+.main_to_map img:hover {
+  margin-top: 4.2rem;
+  width: 70px;
+  filter: invert(66%) sepia(15%) saturate(1745%) hue-rotate(124deg)
+    brightness(89%) contrast(99%);
 }
 
 input[name="tabmenu"] {
@@ -39,7 +57,7 @@ input[name="tabmenu"] {
 }
 .main_items {
   height: 100%;
-  width: 300%;
+  width: 100%;
   transition: 0.5s;
   position: absolute;
   top: 0;
@@ -47,7 +65,7 @@ input[name="tabmenu"] {
 }
 .main_items div.main_item {
   float: left;
-  width: 33.33333%;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -55,7 +73,8 @@ input[name="tabmenu"] {
 }
 .map_whole_img {
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.267);
+  /* background-color: rgba(116, 116, 116, 0.267);*/
+  background-color: #1d34643f;
 }
 .map_container {
   position: relative;
@@ -71,7 +90,10 @@ input[name="tabmenu"] {
   filter: brightness(0) invert(1);
 }
 .map_container img[id] {
-  opacity: 0;
+  opacity: 0.5;
+  transition: 0.5s;
+  filter: invert(66%) sepia(15%) saturate(1745%) hue-rotate(124deg)
+    brightness(89%) contrast(99%);
 }
 .map_container img[id="map_jn"] {
   width: 37.6%;
@@ -80,8 +102,8 @@ input[name="tabmenu"] {
 }
 .map_container img[id="map_gj"] {
   width: 8.675%;
-  top: 73%;
-  left: 20.5%;
+  top: 72.8%;
+  left: 20.9%;
 }
 .map_container img[id="map_jb"] {
   width: 28.75%;
@@ -157,35 +179,4 @@ input[name="tabmenu"] {
   width: 15.625%;
   top: 76.6%;
   left: 79.6%;
-}
-.main_btn {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-}
-.main_btn label {
-  display: inline-block;
-  height: 5px;
-  width: 50px;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-input[id="tab1"]:checked ~ .main_tabs .main_items {
-  left: 0;
-}
-input[id="tab2"]:checked ~ .main_tabs .main_items {
-  left: -100%;
-}
-input[id="tab3"]:checked ~ .main_tabs .main_items {
-  left: -200%;
-}
-
-input[id="tab1"]:checked ~ .main_btn label[for="tab1"],
-input[id="tab2"]:checked ~ .main_btn label[for="tab2"],
-input[id="tab3"]:checked ~ .main_btn label[for="tab3"] {
-  background-color: #000;
 }
