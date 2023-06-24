@@ -1,5 +1,7 @@
 var container = document.querySelector(".API_map");
 
+let snsCotents = JSON.parse(sessionStorage.getItem("snsCotents")); // 글 스토리지 불러오기
+console.log(snsCotents);
 /* 넘어온 지역명으로 area 셋팅 */
 const urlParams = new URLSearchParams(window.location.search);
 let paramName = urlParams.get("name");
@@ -69,13 +71,45 @@ for (var i = 0; i < positions.length; i++) {
     customOverlays.forEach((element) => {
       element.setMap(null);
     });
-
     // Todo : 선택한 마커의 글 리스트를 보여주는 부분을 추가해줘야 됨.
     const sideCon = document.querySelector(".side_right");
     const sideList = document.querySelector(".right_list");
     const titleLable = document.querySelector(".titleLable");
-    titleLable.textContent = marker.getTitle();
+    // 리스트의 내용 전부 지우기
+    if (sideCon.firstChild) {
+      sideCon.removeChild(sideCon.firstChild);
+    }
+    // while (sideList.firstChild) {
+    //   sideList.removeChild(sideList.firstChild);
+    // }
 
+    // 글 리스트 불러와서 세팅
+    let totalHTML = "";
+    snsCotents.forEach((element) => {
+      console.log(element.mName);
+      console.log(marker.getTitle());
+      if (element.mName == marker.getTitle()) {
+        const snsboxString = `<div class="sns_box">
+        <div class="sns_img">
+        <img class="img" src="${element.img}" alt="" />
+        </div>
+        <div class="sns_title"><h2>${element.title}</h2></div>
+        </div>`;
+        totalHTML = totalHTML + snsboxString;
+      }
+    });
+    // let totalHTML = sideList.innerHTML;
+    //   const snsboxString = `<div class="sns_box">
+    //   <div class="sns_img">
+    //     <img class="img" src="${snsCotents[0].img}" alt="" />
+    //   </div>
+    //   <div class="sns_title"><h2>${snsCotents[0].title}</h2></div>
+    // </div>`;
+    // totalHTML = totalHTML + snsboxString;
+    // console.log(snsboxString);
+    sideList.innerHTML = totalHTML;
+
+    titleLable.textContent = marker.getTitle();
     sideList.appendChild(titleLable);
     sideList.classList.add("right_showit");
     sideCon.appendChild(sideList);

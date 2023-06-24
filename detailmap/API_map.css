@@ -20,3 +20,20 @@
   font-size: 14px;
   font-weight: bold;
 }
+
+.right_list > .sns_box {
+  border: 1px solid #007996;
+  height: 240px;
+  width: 47%;
+  margin: 5px 5px;
+
+  border-radius: 14px;
+  overflow: hidden;
+}
+.right_list > .sns_box > .sns_img {
+  width: 100%;
+}
+.right_list > .sns_box > .sns_img > .img {
+  width: 186px;
+  height: 200px;
+}

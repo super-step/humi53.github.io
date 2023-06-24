@@ -60,7 +60,8 @@ article.API_map_box > div.side_right {
   display: none;
 }
 .right_showit {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 article.API_course {
