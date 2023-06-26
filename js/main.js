@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let member = JSON.parse(sessionStorage.getItem("member"));
   const sessionUser = JSON.parse(sessionStorage.getItem("user"));
-
   // 세션유무에 따른 메뉴바 처리
   let isLogin = false;
   const menuBar = document.querySelector("nav.cyy_nav");

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="myPage.css" />
-    <link rel="stylesheet" href="myPageModal.css" />
+    <link rel="stylesheet" href="myPage_PostManage.css" />
     <script src="/js/main.js"></script>
     <title>여행발자국</title>
   </head>
@@ -32,7 +32,7 @@
     <section>
       <article>
         <div class="myPageHeader">
-          <div>마이페이지</div>
+          <div>발자국 관리</div>
         </div>
         <div class="myPageBody">
           <div class="myPageList">
@@ -72,48 +72,18 @@
             </div>
           </div>
           <div class="myPageContent">
-            <div class="myPageSetting">
-              <div class="mPContentTitle">기본페이지</div>
-              <div class="mPContentBox">
-                <div class="mPNicSet">
-                  <div>닉네임 :</div>
-                  <label class="mPNowNic">사료 싫어하는 고양이</label>
-                  <div class="mPNicChange mPBtn">변경하기</div>
-                </div>
-                <div class="mPPWSet">
-                  <div>비밀번호 변경</div>
-                  <div class="mPPWChange mPBtn">변경하기</div>
-                </div>
-              </div>
-            </div>
             <div class="myPagePost">
               <div class="mPContentTitle">발자국 관리</div>
               <div class="mPContentBox" id="mpPostListBox">
-                <div class="mPPostCount">
-                  지금까지 '<span id="mPPostNumber">999</span>'개의 발자국을
-                  남겼어요!
+                <div class="mPPostBox">
+                  <img class="mPPostImg" src="" alt="" />
+                  <div class="mPPostHeart">
+                    <span class="mPPostHeartCount">99</span>
+                    <img src="/image/icon_heart.png" alt="" />
+                  </div>
+                  <div class="mPPostTitle">가나다ㅇㅇㅇ</div>
                 </div>
-                <div class="mPPostManage mPBtn">발자국 관리하기</div>
               </div>
-            </div>
-            <div class="myPageImgContainer">
-              <img src="/image/자전거.png" alt="" />
-            </div>
-          </div>
-        </div>
-        <div id="modal" class="modal-overlay">
-          <div class="modal-window">
-            <div class="my_modal_header">
-              <div class="my_modal_title">
-                <h2>닉네임 변경</h2>
-              </div>
-              <div class="my_modal_close_area">X</div>
-            </div>
-            <div class="my_modal_content">
-              <form action="">
-                <input name="myChangeValue" type="text" />
-                <button id="my_modal_change_btn">변경하기</button>
-              </form>
             </div>
           </div>
         </div>
@@ -122,7 +92,6 @@
     <footer>
       <p>CopyRight &copy; dbsdudsw@icloud.com</p>
     </footer>
-    <script src="myPage.js"></script>
-    <script src="myPageModal.js"></script>
+    <script src="myPage_PostManage.js"></script>
   </body>
 </html>
