@@ -118,6 +118,8 @@ for (var i = 0; i < positions.length; i++) {
     sideList.appendChild(titleLable);
     sideList.classList.add("right_showit");
     sideCon.appendChild(sideList);
+
+    document.querySelector("#nav_sns_upload").classList.remove("right_write");
     // 선택한 오버레이를 열어준다.
     customOverlay.setMap(map);
   });
