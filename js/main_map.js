@@ -1,22 +1,3 @@
-// const map = [
-//   "gj",
-//   "jn",
-//   "jb",
-//   "gn",
-//   "bs",
-//   "us",
-//   "dg",
-//   "gb",
-//   "cb",
-//   "dj",
-//   "sj",
-//   "cn",
-//   "su",
-//   "ic",
-//   "gg",
-//   "go",
-//   "jj",
-// ];
 const map = [
   { name: "gj", deepLv: 1 },
   { name: "bs", deepLv: 1 },
@@ -62,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
     img_area.addEventListener("click", () => {
       if (area.name == "gj" || area.name == "jn") {
         if (area.deepLv == 1) {
-          location.replace(`./detailmap/API_map.html?name=${area.name}`);
+          location.replace(`/detailmap/API_map.html?name=${area.name}&type=0`);
         } else if (area.deepLv == 2) {
-          location.href = `./detailmap/map_${area.name}.html`;
+          location.href = `/servemap/map_${area.name}.html`;
         }
       } else {
         alert("업데이트 예정");

@@ -1,10 +1,13 @@
 var container = document.querySelector(".API_map");
 
 let snsCotents = JSON.parse(sessionStorage.getItem("snsCotents")); // 글 스토리지 불러오기
-console.log(snsCotents);
+const sessionUser = JSON.parse(sessionStorage.getItem("user")); // 로그인 유저 스토리지 불러오기
+
 /* 넘어온 지역명으로 area 셋팅 */
 const urlParams = new URLSearchParams(window.location.search);
 let paramName = urlParams.get("name");
+let paramType = urlParams.get("type");
+
 let area;
 arrCenter.forEach((element) => {
   if (element.name == paramName) {
@@ -31,7 +34,13 @@ var map = new kakao.maps.Map(container, options);
 */
 
 // 마커 좌표 데이터 로드
-let positions = JSON.parse(JSON.stringify(TestFile)).gj;
+let positions;
+
+if (paramName == "gj") {
+  positions = JSON.parse(JSON.stringify(TestFile)).gj;
+} else if (paramName == "Yeosu") {
+  positions = JSON.parse(JSON.stringify(TestFile)).Yeosu;
+}
 // 마커 이미지의 이미지 주소입니다
 var imageSrc =
   "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
@@ -39,6 +48,13 @@ var imageSrc =
 let makers = []; // 마커 리스트
 let customOverlays = []; // 커스텀 오버레이 리스트
 for (var i = 0; i < positions.length; i++) {
+  if (paramType == "0") {
+    // console.log(paramType);
+    // console.log(positions[i]);
+  } else if (paramType != positions[i].type) {
+    // console.log(paramType);
+    continue;
+  }
   // 마커 이미지의 이미지 크기 입니다
   var imageSize = new kakao.maps.Size(24, 35);
   // 마커 이미지를 생성합니다
@@ -86,8 +102,6 @@ for (var i = 0; i < positions.length; i++) {
     // 글 리스트 불러와서 세팅
     let totalHTML = "";
     snsCotents.forEach((element) => {
-      console.log(element.mName);
-      console.log(marker.getTitle());
       if (element.mName == marker.getTitle()) {
         const snsboxString = `<div class="sns_box">
         <div class="sns_img">
@@ -98,15 +112,6 @@ for (var i = 0; i < positions.length; i++) {
         totalHTML = totalHTML + snsboxString;
       }
     });
-    // let totalHTML = sideList.innerHTML;
-    //   const snsboxString = `<div class="sns_box">
-    //   <div class="sns_img">
-    //     <img class="img" src="${snsCotents[0].img}" alt="" />
-    //   </div>
-    //   <div class="sns_title"><h2>${snsCotents[0].title}</h2></div>
-    // </div>`;
-    // totalHTML = totalHTML + snsboxString;
-    // console.log(snsboxString);
     sideList.innerHTML = totalHTML;
 
     titleLable.textContent = marker.getTitle();

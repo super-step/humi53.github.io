@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     if (area.id == "Yeosu") {
       area.addEventListener("click", () => {
-        location.href = "API_map_Yeosu.html";
+        location.replace(`/detailmap/API_map.html?name=${area.id}&type=0`);
       });
     } else {
       area.addEventListener("click", () => {
