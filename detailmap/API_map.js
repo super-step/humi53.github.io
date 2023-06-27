@@ -46,9 +46,9 @@ var imageSrc =
   "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 var imageArry = [
   "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
-  "../image/icon/pin_garden.png", //축제
-  "../image/icon/pin_nature.png", // 관광지
-  "../image/icon/pin_restaurant.png", // 음식
+  "../image/icon/pin_1.png", //축제
+  "../image/icon/pin_2.png", // 관광지
+  "../image/icon/pin_3.png", // 음식
 ];
 
 let makers = []; // 마커 리스트
@@ -66,7 +66,7 @@ for (var i = 0; i < positions.length; i++) {
   var imageSize = new kakao.maps.Size(40, 40);
   // 마커 이미지를 생성합니다
   let markerType = positions[i].type;
-  console.log(imageArry[markerType]);
+
   // var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
   var markerImage = new kakao.maps.MarkerImage(
     imageArry[markerType],
@@ -113,9 +113,10 @@ for (var i = 0; i < positions.length; i++) {
     // }
 
     // 글 리스트 불러와서 세팅
-    titleLable.textContent = marker.getTitle();
-    sideList.appendChild(titleLable);
+    // titleLable.textContent = marker.getTitle();
+    // sideList.appendChild(titleLable);
     let totalHTML = "";
+    totalHTML = `<div class="titleLable"><label for="" >${marker.getTitle()}</label></div>`;
     snsCotents.forEach((element) => {
       if (element.mName == marker.getTitle()) {
         const snsboxString = `<div class="sns_box">
@@ -133,7 +134,9 @@ for (var i = 0; i < positions.length; i++) {
     sideList.classList.add("right_showit");
     sideCon.appendChild(sideList);
 
-    document.querySelector("#nav_sns_upload").classList.remove("right_write");
+    if (sessionUser != null) {
+      document.querySelector("#nav_sns_upload").classList.remove("right_write");
+    }
     // 선택한 오버레이를 열어준다.
     customOverlay.setMap(map);
   });

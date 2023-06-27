@@ -79,3 +79,16 @@ div.API_course_create {
 div.API_course_create:hover {
   cursor: pointer;
 }
+div.titleLable {
+  width: 398px;
+  height: 40px;
+  display: block;
+  /* border: 1px solid #000; */
+  background-color: rgb(202, 221, 255);
+  padding-top: 8px;
+  font-weight: 800;
+}
+div.titleLable label {
+  display: block;
+  padding: 5px auto;
+}
