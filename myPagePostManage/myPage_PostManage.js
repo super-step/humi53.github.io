@@ -26,17 +26,17 @@ snsCotents.forEach((element) => {
     nowHeart = nowHeart + element.heart;
     const PostboxString = `
 
-          <div class="mPPostBox">
-          <img class="mPPostImg" src="${element.img}" alt="" />
-          <div class="mPPostTitlebox">
-            <div class="mPPostMapTitle">${element.mName}</div>
-            <div class="mPPostHeart">
-              <span class="mPPostHeartCount">${element.heart}</span>
-              <img src="../image/icon_heart.png" alt="" />
-            </div>
+        <div class="mPPostBox">
+        <img class="mPPostImg" src="${element.img}" alt="" />
+        <div class="mPPostTitlebox">
+          <div class="mPPostMapTitle">${element.mName}</div>
+          <div class="mPPostHeart">
+            <span class="mPPostHeartCount">${element.heart}</span>
+            <img src="../image/icon_heart.png" alt="" />
           </div>
-          <div class="mPPostTitle">${element.title}</div>
         </div>
+        <div class="mPPostTitle">${element.title}</div>
+      </div>
 
 
     `;

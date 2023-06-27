@@ -108,9 +108,9 @@ for (var i = 0; i < positions.length; i++) {
     if (sideCon.firstChild) {
       sideCon.removeChild(sideCon.firstChild);
     }
-    // while (sideList.firstChild) {
-    //   sideList.removeChild(sideList.firstChild);
-    // }
+    while (sideList.firstChild) {
+      sideList.removeChild(sideList.firstChild);
+    }
 
     // 글 리스트 불러와서 세팅
     // titleLable.textContent = marker.getTitle();

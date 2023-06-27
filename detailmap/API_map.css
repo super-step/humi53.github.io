@@ -30,13 +30,14 @@
   border-radius: 14px;
   overflow: hidden;
 }
-.right_list {
+/* .right_list {
   overflow: auto;
-  height: 100%;
+  height: 700px;
+  display: flex;
 }
 .right_list::-webkit-scrollbar {
   display: none;
-}
+} */
 .right_list > .sns_box > .sns_img {
   width: 100%;
 }
