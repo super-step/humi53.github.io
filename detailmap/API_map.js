@@ -44,6 +44,12 @@ if (paramName == "gj") {
 // 마커 이미지의 이미지 주소입니다
 var imageSrc =
   "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+var imageArry = [
+  "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
+  "../image/icon/pin_garden.png", //축제
+  "../image/icon/pin_nature.png", // 관광지
+  "../image/icon/pin_restaurant.png", // 음식
+];
 
 let makers = []; // 마커 리스트
 let customOverlays = []; // 커스텀 오버레이 리스트
@@ -56,9 +62,16 @@ for (var i = 0; i < positions.length; i++) {
     continue;
   }
   // 마커 이미지의 이미지 크기 입니다
-  var imageSize = new kakao.maps.Size(24, 35);
+  // var imageSize = new kakao.maps.Size(24, 35);
+  var imageSize = new kakao.maps.Size(40, 40);
   // 마커 이미지를 생성합니다
-  var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+  let markerType = positions[i].type;
+  console.log(imageArry[markerType]);
+  // var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+  var markerImage = new kakao.maps.MarkerImage(
+    imageArry[markerType],
+    imageSize
+  );
   let position = new kakao.maps.LatLng(
     positions[i].Latitude,
     positions[i].longitude
@@ -100,22 +113,23 @@ for (var i = 0; i < positions.length; i++) {
     // }
 
     // 글 리스트 불러와서 세팅
+    titleLable.textContent = marker.getTitle();
+    sideList.appendChild(titleLable);
     let totalHTML = "";
     snsCotents.forEach((element) => {
       if (element.mName == marker.getTitle()) {
         const snsboxString = `<div class="sns_box">
-        <div class="sns_img">
-        <img class="img" src="${element.img}" alt="" />
-        </div>
-        <div class="sns_title"><h2>${element.title}</h2></div>
-        </div>`;
+                                <div class="sns_img">
+                                  <img class="img" src="${element.img}" alt="" />
+                                </div>
+                                <div class="sns_title"><h2>${element.title}</h2></div>
+                              </div>`;
         totalHTML = totalHTML + snsboxString;
       }
     });
+
     sideList.innerHTML = totalHTML;
 
-    titleLable.textContent = marker.getTitle();
-    sideList.appendChild(titleLable);
     sideList.classList.add("right_showit");
     sideCon.appendChild(sideList);
 
